@@ -15,25 +15,46 @@ let nombres  = ['Jorge','Isabel','Juan','Pedro','Karina','Jose','Arturo','Rogeli
 */
 
 // CREA TU FUNCION mayusculas aqui:
-
-
+function mayusculas(array) {
+    array.forEach(element => {
+        element = element.toUpperCase();
+        console.log(element);
+    });
+}
 
 /*
 ### F2 Crea una funcion llamada numVocales que reciba como parámetro un arreglo y cuente el numero de vocales de cada elemento y escriba en consola "datos: tiene [x] vocales , para cada elemento del arreglo" 
 */
 
 // CREA TU FUNCION numVocales aqui:
+function numVocales(str) {
+    let count = 0;
 
+    for (let c of str) {
+        if (isVowel(c.toLowerCase()))
+            count++;
+    }
+
+    console.log(`${str} tiene ${count} vocales`);
+}
+
+function isVowel(c) {
+    if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'o')
+        return true;
+
+    return false;
+}
 
 /*
 ### F3 Crea una funcion llamada numVocalesArr que reciba un arreglo y mande llamar a la funcion numVocales para que escriba la longitud de cada elemento del arreglo." 
 */
 
 // CREA TU FUNCION numVocalesArr aqui:
-
-
-
-
+function numVocalesArr(array) {
+    array.forEach(element => {
+        numVocales(element);
+    });
+}
 
 /* 
 ################ OBJETOS ###############
@@ -43,6 +64,7 @@ A) Define un objeto tipo "Perro" que reciba 3 parametros
 1) Nombre
 2) Color
 3) Raza
+
 
 
 B) Crea 3 objectos  con diferentes valores
@@ -64,8 +86,21 @@ Deberia escribir en consola
 
 
 */
+class Perro {
+    constructor(nombre, color, raza) {
+    this.nombre = nombre;
+    this.color = color;
+    this.raza = raza;
+    } 
 
+    printInfo() {
+        console.log(`Nombre: ${this.nombre}, De color: ${this.color}, Raza: ${this.raza}`);
+    }
+}
 
+var perro1 = new Perro("Fido", "Dorado", "Golden Retreiver");
+var perro2 = new Perro("Max", "Café", "Pastor Alemán");
+var perro3 = new Perro("Bella", "Gris", "Husky");
 
 /***
  * 
@@ -74,22 +109,29 @@ Deberia escribir en consola
  ***/
 
 // F1
-
+console.log("F1: mayusculas");
+mayusculas(nombres);
 
 // F2
-
+console.log("F2: numVocales");
+numVocales(nombres[0]);
 
 // F3
-
-
-
+console.log("F3: numVocalesArr");
+numVocalesArr(nombres);
 
 /***
  * 
  *        PRUEBA TUS OBJETOS
  * 
  ***/
+console.log("Objetos: partes A) B) C)");
+console.log(perro1.nombre);
+console.log(perro2.color);
+console.log(perro3.raza);
 
+console.log("Objetos: BONUS");
+perro1.printInfo();
 
 </script>
 
